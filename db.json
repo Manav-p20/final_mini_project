@@ -1,0 +1,42 @@
+{
+  "states": {
+    "totalproducts": 120,
+    "totalorder": 20,
+    "totalusers": 40
+  },
+  "sales": [
+    {
+      "name": "Jan",
+      "sales": 200,
+      "id": "JdEIQaeNL8U"
+    },
+    {
+      "name": "feb",
+      "sales": 500,
+      "id": "DYRzCa16GUI"
+    },
+    {
+      "name": "march",
+      "sales": 480,
+      "id": "z0UAYQ753Qg"
+    },
+    {
+      "name": "april",
+      "sales": 700,
+      "id": "-MvHvnPwIeg"
+    },
+    {
+      "name": "may",
+      "sales": 600,
+      "id": "3h52cBSfWWk"
+    }
+  ],
+  "products": [
+    {
+      "id": "C-oyVeQfer8",
+      "name": "ad",
+      "price": "0454"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
