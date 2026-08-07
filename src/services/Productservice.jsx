@@ -15,6 +15,17 @@ export const createproduct = async (product) => {
     return res.data;
 };
 
+
+
+export const updateproducts = async (product) => {
+  const res = await axios.put(
+    `${API_URL}/${product.id}`,
+    product
+  );
+
+  return res.data;
+};
+
 // delete 
 
 export const deleteproduct = async (id) => {

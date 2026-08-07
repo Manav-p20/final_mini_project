@@ -1,62 +1,96 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { createproduct, deleteproduct, fetchproducts } from "../../services/Productservice";
-import { create } from "axios";
 
-// get 
+import {
+  fetchproducts,
+  createproduct,
+  updateproducts,
+  deleteproduct,
+} from "../../services/Productservice";
 
+// GET PRODUCTS
 export const getproducts = createAsyncThunk(
-    "products/getproducts",
-    async () => {
-        return await fetchproducts();
-    }
+  "products/getproducts",
+  async () => {
+    return await fetchproducts();
+  }
 );
 
-// add 
-
+// ADD PRODUCT
 export const addproduct = createAsyncThunk(
-    'product/addproduct',
-    async(product) => {
-        return await createproduct(product);
-    },
+  "products/addproduct",
+  async (product) => {
+    return await createproduct(product);
+  }
 );
 
-// delte 
+// UPDATE PRODUCT
+export const updateproduct = createAsyncThunk(
+  "products/updateproduct",
+  async (product) => {
+    return await updateproducts(product);
+  }
+);
+
+// DELETE PRODUCT
 export const removeproduct = createAsyncThunk(
-    'product/removeproduct',
-    async (id) => {
-        await deleteproduct(id)
-        return id;
-    }
-)
+  "products/removeproduct",
+  async (id) => {
+    await deleteproduct(id);
+    return id;
+  }
+);
 
 const initialState = {
-    products:[],
-}
+  products: [],
+};
 
 const productslice = createSlice({
-    name: "products",
-    initialState,
-    // reducers: {
-    //     addproducts = (state, action) => {
-    //         state.products.push(action.payload)
-    //     }
-    // }
+  name: "products",
+  initialState,
 
-    // update pending 
-extraReducers: (builder) => {
-    builder
-    .addCase(getproducts.fulfilled, (state, action) => {
+  extraReducers: (builder) => {
+    // GET
+    builder.addCase(
+      getproducts.fulfilled,
+      (state, action) => {
         state.products = action.payload;
-    })
-    .addCase(addproduct. fulfilled, (state, action) => {
-        state.products.push(action.payload)
-    })
+      }
+    );
 
-    .addCase(removeproduct.fulfilled, (state, action) => {
-        state.products = state.products.filter((p) => p.id !== action.payload)
-    })
-}
+    // ADD
+    builder.addCase(
+      addproduct.fulfilled,
+      (state, action) => {
+        state.products.push(action.payload);
+      }
+    );
 
-})
+    // UPDATE
+    builder.addCase(
+      updateproduct.fulfilled,
+      (state, action) => {
+        const index = state.products.findIndex(
+          (product) =>
+            product.id === action.payload.id
+        );
 
-export default productslice.reducer
+        if (index !== -1) {
+          state.products[index] = action.payload;
+        }
+      }
+    );
+
+    // DELETE
+    builder.addCase(
+      removeproduct.fulfilled,
+      (state, action) => {
+        state.products = state.products.filter(
+          (product) =>
+            product.id !== action.payload
+        );
+      }
+    );
+  },
+});
+
+export default productslice.reducer;

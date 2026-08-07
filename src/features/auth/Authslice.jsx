@@ -2,10 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     user: null,
-    isAuthenticated: false,
+    isAuthenticated:localStorage.getItem("isAuthenticated") === "true",
     name: "",
     password: "",
 };
+
 
 const authSlice = createSlice({
     name: "auth",
@@ -26,6 +27,10 @@ const authSlice = createSlice({
             };
 
             state.isAuthenticated = true;
+              localStorage.setItem(
+        "isAuthenticated",
+        "true"
+      );
         },
 
         logout: (state) => {
@@ -33,9 +38,12 @@ const authSlice = createSlice({
             state.password = "";
             state.user = null;
             state.isAuthenticated = false;
+
+            localStorage.removeItem("isAuthenticated");
         },
     },
 });
+
 
 
 export const { login, logout, setName, setPassword } = authSlice.actions;

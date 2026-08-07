@@ -2,7 +2,20 @@
   "states": {
     "totalproducts": 120,
     "totalorder": 20,
-    "totalusers": 40
+    "totalusers": [
+      {
+        "name": "Manav",
+        "password": "123456"
+      },
+      {
+        "name": "Kalpesh",
+        "password": "123456"
+      },
+      {
+        "name": "Ketan",
+        "password": "123456"
+      }
+    ]
   },
   "sales": [
     {
@@ -33,9 +46,40 @@
   ],
   "products": [
     {
-      "id": "C-oyVeQfer8",
-      "name": "ad",
-      "price": "0454"
+      "id": "pU9sllFZnwI",
+      "name": "dfakl",
+      "price": 6562,
+      "image": "dfsjjskfedhjs"
+    },
+    {
+      "id": "l5PBjHpp6_E",
+      "name": "kdknakl",
+      "price": 9569,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr9H9MXyhvoiQF52Cwx_E96u3gmXJeyzhwFrfMR8IrPA&s=10"
+    },
+    {
+      "id": "O0DIPJgDAU4",
+      "name": "realme 8 pro",
+      "price": 24000,
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQowIW69GvQnyRo1QsgJpBhCyMQAbw4T--WFAdABBhY9Yyv7YFj0vWtSyipsmwlzg3KoNnN-JAulVVdCfrVlDwBFSSDaFDj9aeKsrTIdOk42c9Q36-3sSZ8zg"
+    },
+    {
+      "id": "YNJ5xiJJbak",
+      "name": "oneplus",
+      "price": 57000,
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQowIW69GvQnyRo1QsgJpBhCyMQAbw4T--WFAdABBhY9Yyv7YFj0vWtSyipsmwlzg3KoNnN-JAulVVdCfrVlDwBFSSDaFDj9aeKsrTIdOk42c9Q36-3sSZ8zg"
+    },
+    {
+      "id": "tu6IM960QnQ",
+      "name": "vivo t4r",
+      "price": 20000,
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQowIW69GvQnyRo1QsgJpBhCyMQAbw4T--WFAdABBhY9Yyv7YFj0vWtSyipsmwlzg3KoNnN-JAulVVdCfrVlDwBFSSDaFDj9aeKsrTIdOk42c9Q36-3sSZ8zg"
+    },
+    {
+      "id": "8B6yHSh58jg",
+      "name": "vivo",
+      "price": 24100,
+      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQowIW69GvQnyRo1QsgJpBhCyMQAbw4T--WFAdABBhY9Yyv7YFj0vWtSyipsmwlzg3KoNnN-JAulVVdCfrVlDwBFSSDaFDj9aeKsrTIdOk42c9Q36-3sSZ8zg"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

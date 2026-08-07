@@ -1,28 +1,70 @@
-import { useState } from 'react'
-import './App.css'
-import Dashboard from './pages/Dashboard'
-import Login from './pages/Login'
-import Orders from './pages/Orders'
-import Products from './pages/Products'
-import Users from './pages/Users'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Protectedroute from './components/Protectedroute'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import Protectedroute from "./components/Protectedroute";
+
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Login = lazy(() => import("./pages/Login"));
+const Orders = lazy(() => import("./pages/Orders"));
+const Products = lazy(() => import("./pages/Products"));
+const Users = lazy(() => import("./pages/Users"));
+const Viewproduct = lazy(() => import("./pages/Viewproduct"));
 
 function App() {
-
-
   return (
     <BrowserRouter>
-     <Routes>
-  <Route path="/" element={<Login />} />
+      <Suspense fallback={<h3>Loading...</h3>}>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/login" element={<Login />} />
 
-  <Route path='/dashboard' element={<Dashboard />} />
-<Route path='/products' element={<Products />} />
-<Route path='/orders' element={<Orders />} />
-<Route path='/users' element={<Users />} />
-</Routes>
+          <Route
+            path="/dashboard"
+            element={
+              <Protectedroute>
+                <Dashboard />
+              </Protectedroute>
+            }
+          />
+
+          <Route
+            path="/products"
+            element={
+              <Protectedroute>
+                <Products />
+              </Protectedroute>
+            }
+          />
+
+          <Route
+            path="/orders"
+            element={
+              <Protectedroute>
+                <Orders />
+              </Protectedroute>
+            }
+          />
+
+          <Route
+            path="/users"
+            element={
+              <Protectedroute>
+                <Users />
+              </Protectedroute>
+            }
+          />
+
+          <Route
+  path="/viewproduct/:id"
+  element={
+    <Protectedroute>
+      <Viewproduct />
+    </Protectedroute>
+  }
+/>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

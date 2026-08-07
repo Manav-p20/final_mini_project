@@ -8,4 +8,6 @@ export const getstates = () => APi.get("/states");
 
 export const getsales = () => APi.get("/sales");
 
+export const totalusers = () => APi.get("/states");
+
 

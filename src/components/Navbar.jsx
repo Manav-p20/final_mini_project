@@ -10,11 +10,9 @@ const Navbar = () => {
   const navigate = useNavigate();
 
 
-
-
    const handellogout = () => {
     dispatch(logout());
-    navigate("/Login")
+    navigate("/")
   }
   return (
     <nav className="navbar navbar-dark bg-dark px-5">
