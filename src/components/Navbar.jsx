@@ -1,23 +1,35 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../features/auth/Authslice";
-import { Navigate, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTheme } from "../context/Themecontext";
 
 const Navbar = () => {
+  const { darkMode, toggleTheme } = useTheme();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
-   const handellogout = () => {
+  const handleLogout = () => {
     dispatch(logout());
-    navigate("/")
-  }
+    navigate("/");
+  };
+
   return (
-    <nav className="navbar navbar-dark bg-dark px-5">
-      <button onClick={handellogout}>Logout</button>
-      <span></span>
+    <nav className="navbar px-5 py-3">
+      <button
+        className="btn btn-outline-primary"
+        onClick={toggleTheme}
+      >
+        {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
+      </button>
+
+      <button
+        className="btn btn-danger"
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
     </nav>
   );
 };

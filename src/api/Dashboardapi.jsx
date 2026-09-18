@@ -10,4 +10,6 @@ export const getsales = () => APi.get("/sales");
 
 export const totalusers = () => APi.get("/states");
 
+export const gettotalproducts = () => APi.get("/products");
+
 

@@ -1,7 +1,12 @@
 {
   "states": {
     "totalproducts": 120,
-    "totalorder": 20,
+    "totalorder": [
+      {
+        "previousmonthsale": 5000,
+        "currentmonthsale": 5100
+      }
+    ],
     "totalusers": [
       {
         "name": "Manav",
@@ -24,62 +29,38 @@
       "id": "JdEIQaeNL8U"
     },
     {
-      "name": "feb",
+      "name": "Feb",
       "sales": 500,
       "id": "DYRzCa16GUI"
     },
     {
-      "name": "march",
+      "name": "March",
       "sales": 480,
       "id": "z0UAYQ753Qg"
     },
     {
-      "name": "april",
+      "name": "April",
       "sales": 700,
       "id": "-MvHvnPwIeg"
     },
     {
-      "name": "may",
+      "name": "May",
       "sales": 600,
       "id": "3h52cBSfWWk"
     }
   ],
   "products": [
     {
-      "id": "pU9sllFZnwI",
-      "name": "dfakl",
-      "price": 6562,
-      "image": "dfsjjskfedhjs"
+      "id": "IJspd0vJYrw",
+      "name": "laptop",
+      "price": 570000,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfWt8287DsMfK_OMymGrn9f57MeX5cvTVHaj4zSZECOBaHNCoTY86YZ-QE&s=10"
     },
     {
-      "id": "l5PBjHpp6_E",
-      "name": "kdknakl",
-      "price": 9569,
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTr9H9MXyhvoiQF52Cwx_E96u3gmXJeyzhwFrfMR8IrPA&s=10"
-    },
-    {
-      "id": "O0DIPJgDAU4",
-      "name": "realme 8 pro",
-      "price": 24000,
-      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQowIW69GvQnyRo1QsgJpBhCyMQAbw4T--WFAdABBhY9Yyv7YFj0vWtSyipsmwlzg3KoNnN-JAulVVdCfrVlDwBFSSDaFDj9aeKsrTIdOk42c9Q36-3sSZ8zg"
-    },
-    {
-      "id": "YNJ5xiJJbak",
-      "name": "oneplus",
-      "price": 57000,
-      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQowIW69GvQnyRo1QsgJpBhCyMQAbw4T--WFAdABBhY9Yyv7YFj0vWtSyipsmwlzg3KoNnN-JAulVVdCfrVlDwBFSSDaFDj9aeKsrTIdOk42c9Q36-3sSZ8zg"
-    },
-    {
-      "id": "tu6IM960QnQ",
-      "name": "vivo t4r",
-      "price": 20000,
-      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQowIW69GvQnyRo1QsgJpBhCyMQAbw4T--WFAdABBhY9Yyv7YFj0vWtSyipsmwlzg3KoNnN-JAulVVdCfrVlDwBFSSDaFDj9aeKsrTIdOk42c9Q36-3sSZ8zg"
-    },
-    {
-      "id": "8B6yHSh58jg",
-      "name": "vivo",
-      "price": 24100,
-      "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQowIW69GvQnyRo1QsgJpBhCyMQAbw4T--WFAdABBhY9Yyv7YFj0vWtSyipsmwlzg3KoNnN-JAulVVdCfrVlDwBFSSDaFDj9aeKsrTIdOk42c9Q36-3sSZ8zg"
+      "id": "Cdw2XJOmqpQ",
+      "name": "phone",
+      "price": 25000,
+      "image": "https://cdn.mobilekidukaan.in/refubished-card-400/01757489520.webp?v=mkd-card-bg4"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

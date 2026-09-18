@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -7,46 +6,63 @@ import {
   login,
 } from "../features/auth/Authslice";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../context/Themecontext";
 
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // DARK MODE
+  const { darkMode } = useTheme();
+
+  // ERROR STATE
   const [errors, setErrors] = useState("");
 
+  // REDUX STATE
   const { name, password } = useSelector(
     (state) => state.auth
   );
 
+  // LOGIN FUNCTION
   const handleLogin = (e) => {
     e.preventDefault();
 
     setErrors("");
 
-    if (name.trim() === "") {
+    // NAME VALIDATION
+    if (!name.trim()) {
       setErrors("Name is required");
       return;
     }
 
+    // PASSWORD VALIDATION
     if (password.length < 6) {
       setErrors("Password must be at least 6 characters");
       return;
     }
 
+    // LOGIN
     dispatch(login());
+
+    // NAVIGATE TO DASHBOARD
     navigate("/dashboard");
   };
 
   return (
-    <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light">
-      <div className="container">
+    <div
+      className={`min-vh-100 d-flex align-items-center justify-content-center login-page  ${
+        darkMode ? "theme-dark" : "theme-light"
+      }`}
+    >
+      <div className="container" style={{marginBottom:"50px" }}>
         <div className="row justify-content-center">
-          <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-            
-            <div className="card shadow-lg border-0 rounded-4">
+          <div className="col-12 col-md-8 col-lg-6 col-xl-5" >
+
+            {/* LOGIN CARD */}
+            <div className="card shadow-lg border-0 rounded-4" >
               <div className="card-body p-4 p-md-5">
 
-                {/* Header */}
+                {/* HEADER */}
                 <div className="text-center mb-4">
                   <h2 className="fw-bold">
                     Welcome Back
@@ -57,11 +73,11 @@ const Login = () => {
                   </p>
                 </div>
 
-                {/* Login Form */}
-                <form onSubmit={handleLogin}>
+                {/* LOGIN FORM */}
+                <form onSubmit={handleLogin} >
 
-                  {/* Name */}
-                  <div className="mb-3">
+                  {/* NAME */}
+                  <div className="mb-3" >
                     <label
                       htmlFor="name"
                       className="form-label fw-semibold"
@@ -81,7 +97,7 @@ const Login = () => {
                     />
                   </div>
 
-                  {/* Password */}
+                  {/* PASSWORD */}
                   <div className="mb-3">
                     <label
                       htmlFor="password"
@@ -102,14 +118,17 @@ const Login = () => {
                     />
                   </div>
 
-                  {/* Error */}
+                  {/* ERROR MESSAGE */}
                   {errors && (
-                    <div className="alert alert-danger py-2">
+                    <div
+                      className="alert alert-danger py-2"
+                      role="alert"
+                    >
                       {errors}
                     </div>
                   )}
 
-                  {/* Login Button */}
+                  {/* LOGIN BUTTON */}
                   <button
                     type="submit"
                     className="btn btn-primary btn-lg w-100"
@@ -119,11 +138,14 @@ const Login = () => {
 
                 </form>
 
-                {/* Footer */}
+                {/* FOOTER */}
                 <div className="text-center mt-4">
                   <small className="text-muted">
                     Don't have an account?{" "}
-                    <a href="#" className="text-decoration-none">
+                    <a
+                      href="#"
+                      className="text-decoration-none"
+                    >
                       Sign up
                     </a>
                   </small>

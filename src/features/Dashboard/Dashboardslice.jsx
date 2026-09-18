@@ -1,21 +1,29 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getsales, getstates } from "../../api/Dashboardapi";
+import { getsales, getstates, gettotalproducts } from "../../api/Dashboardapi";
 
 export const fetchstates = createAsyncThunk(
-    "/dashboard/fetchstates",
-    async () => {
-        const response = await getstates();
-        return response.data
-    }   
-)
+  "/dashboard/fetchstates",
+  async () => {
+    const response = await getstates();
+    return response.data;
+  },
+);
 
 export const fetchsales = createAsyncThunk(
-    "/dashboard/fetchsales",
-    async () => {
-        const response = await getsales();
-        return response.data
-    }   
-)
+  "/dashboard/fetchsales",
+  async () => {
+    const response = await getsales();
+    return response.data;
+  },
+);
+
+export const fetchtotalproducts = createAsyncThunk(
+  "/dashboard/fetchtotalproducts",
+  async () => {
+    const response = await gettotalproducts();
+    return response.data;
+  },
+);
 
 const dashboardSlice = createSlice({
   name: "dashboard",
@@ -23,6 +31,7 @@ const dashboardSlice = createSlice({
   initialState: {
     stats: {},
     sales: [],
+    products: [],
     loading: false,
   },
 
@@ -54,7 +63,20 @@ const dashboardSlice = createSlice({
 
       .addCase(fetchsales.rejected, (state) => {
         state.loading = false;
-      });
+      })
+
+      .addCase(fetchtotalproducts.fulfilled, (state, action) => {
+        state.loading = false;
+        state.products = action.payload;
+      })
+
+       .addCase(fetchtotalproducts.pending, (state) => {
+        state.loading = true;
+      })
+
+      .addCase(fetchtotalproducts.rejected, (state) => {
+        state.loading = false;
+      })
   },
 });
 

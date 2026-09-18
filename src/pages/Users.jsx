@@ -27,57 +27,59 @@ const Users = () => {
     return <h3 className="text-center mt-5">Error: {error}</h3>;
   }
 
-  return (
-    <>
-      <Navbar />
+ return (
+  <div className="min-vh-100">
+    <Navbar />
 
-      <div className="container mt-5">
-        <input
-          type="text"
-          placeholder="Search User"
-          value={searchuser}
-          onChange={(e) => setsearchuser(e.target.value)}
-        />
-        <div className="card shadow">
-          <div className="card-header bg-dark text-white">
-            <h3 className="mb-0">Users List</h3>
-          </div>
+    <div className="container mt-5 pb-5">
+      <input
+        type="text"
+        className="form-control mb-3"
+        placeholder="Search User"
+        value={searchuser}
+        onChange={(e) => setsearchuser(e.target.value)}
+      />
 
-          <div className="card-body">
-            <div className="table-responsive">
-              <table className="table table-striped table-hover table-bordered align-middle mb-0">
-                <thead className="table-dark">
-                  <tr>
-                    {/* <th scope="col">#</th> */}
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Password</th>
-                  </tr>
-                </thead>
+      <div className="card shadow">
+        <div className="card-header users-header">
+          <h3 className="mb-0">Users List</h3>
+        </div>
 
-                <tbody>
-                  {userssearch.length > 0 ? (
-                    userssearch.map((user, index) => (
-                      <tr key={user.id || index}>
-                        <td>{index + 1}</td>
-                        {/* <td>{user.id}</td> */}
-                        <td>{user.name}</td>
-                        <td>{user.password}</td>
-                      </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td colSpan={3}>User Not Found </td>
+        <div className="card-body">
+          <div className="table-responsive">
+            <table className="table table-striped table-hover table-bordered align-middle mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Password</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {userssearch.length > 0 ? (
+                  userssearch.map((user, index) => (
+                    <tr key={user.id || index}>
+                      <td>{index + 1}</td>
+                      <td>{user.name}</td>
+                      <td>{user.password}</td>
                     </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="3" className="text-center">
+                      User Not Found
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-    </>
-  );
+    </div>
+  </div>
+);
 };
 
 export default Users;

@@ -28,51 +28,59 @@ const Viewproduct = () => {
   }
 
   return (
-    <div className="container mt-4 mb-5">
-  {/* Back navigation */}
-  <button
-    className="btn btn-outline-secondary btn-sm mb-4"
-    onClick={() => navigate("/products")}
-  >
-    &larr; Back to Products
-  </button>
+  <div className="container mt-4 mb-5">
+    <button
+      className="btn btn-outline-secondary btn-sm mb-4"
+      onClick={() => navigate("/products")}
+    >
+      &larr; Back to Products
+    </button>
 
-  <div className="card shadow-sm border-0">
-    <div className="row g-0">
-      {/* Product image */}
-      <div className="col-md-5 d-flex align-items-center justify-content-center bg-light p-4">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="img-fluid rounded"
-          style={{ maxHeight: "350px", objectFit: "contain" }}
-        />
-      </div>
+    <div className="card shadow-sm border-0">
+      <div className="row g-0">
 
-      {/* Product details */}
-      <div className="col-md-7">
-        <div className="card-body d-flex flex-column h-100 p-4">
-          <h2 className="card-title fw-bold mb-2">{product.name}</h2>
-
-          {product.category && (
-            <span className="badge bg-secondary-subtle text-secondary mb-3 align-self-start">
-              {product.category}
-            </span>
-          )}
-
-          <h3 className="text-success fw-semibold mb-3">
-            ₹{product.price}
-          </h3>
-
-          {product.description && (
-            <p className="text-muted mb-4">{product.description}</p>
-          )}
+        <div className="product-image-section col-md-5 d-flex align-items-center justify-content-center p-4">
+          <img
+            src={product.image}
+            alt={product.name}
+            className="img-fluid rounded"
+            style={{
+              maxHeight: "350px",
+              objectFit: "contain",
+            }}
+          />
         </div>
+
+        <div className="col-md-7">
+          <div className="card-body d-flex flex-column h-100 p-4">
+
+            <h2 className="card-title fw-bold mb-2">
+              {product.name}
+            </h2>
+
+            {product.category && (
+              <span className="badge bg-secondary-subtle text-secondary mb-3 align-self-start">
+                {product.category}
+              </span>
+            )}
+
+            <h3 className="text-success fw-semibold mb-3">
+              ₹{product.price}
+            </h3>
+
+            {product.description && (
+              <p className="text-muted mb-4">
+                {product.description}
+              </p>
+            )}
+
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-</div>
-  );
+);
 };
 
 export default Viewproduct;
